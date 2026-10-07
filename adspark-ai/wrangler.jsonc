@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "adspark-ai",
+  "main": "server/worker.js",
+  "compatibility_date": "2026-10-07",
+  "vars": {
+    "GOOGLE_CLIENT_ID": "105928441066-rfbv13e1g1siimntk7287flhjb2ahuht.apps.googleusercontent.com",
+    "RAZORPAY_KEY_ID": "rzp_live_TkyWt4US2PJ8Cg",
+    "RAZORPAY_ENVIRONMENT": "live",
+    "CLOUDFLARE_AI_MODEL": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+    "CLOUDFLARE_IMAGE_MODEL": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/health"],
+    "not_found_handling": "single-page-application"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "adspark-production",
+      "database_id": "49062b67-31a4-46c8-aa40-76df39c718ba",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "ai": {
+    "binding": "AI"
+  }
+}

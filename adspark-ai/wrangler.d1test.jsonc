@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "adspark-d1-test",
+  "main": "server/worker.js",
+  "compatibility_date": "2026-10-07",
+  "vars": {
+    "GOOGLE_CLIENT_ID": "105928441066-rfbv13e1g1siimntk7287flhjb2ahuht.apps.googleusercontent.com",
+    "RAZORPAY_KEY_ID": "rzp_test_example",
+    "RAZORPAY_ENVIRONMENT": "test",
+    "CLOUDFLARE_AI_MODEL": "@cf/meta/llama-3.1-8b-instruct-fp8-fast",
+    "CLOUDFLARE_IMAGE_MODEL": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "adspark-production",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
